@@ -44,6 +44,22 @@ function createCharacterInfos(character) {
   const characterCardInfos = createElement("div");
   characterCardInfos.classList.add("characterCard-infos");
 
+  const characterCardInfosName = createNameStatusSpecies(character);
+  characterCardInfos.append(characterCardInfosName);
+
+  const lastKnownLocation = createSubInfo(
+    "Last known location:",
+    character.location.name
+  );
+  const firstSeenIn = createSubInfo("First seen in:", character.origin.name);
+
+  characterCardInfos.append(lastKnownLocation);
+  characterCardInfos.append(firstSeenIn);
+
+  return characterCardInfos;
+}
+
+function createNameStatusSpecies(character) {
   const characterCardInfosName = createElement("div");
   characterCardInfosName.classList.add("characterCard-infos--name");
 
@@ -66,18 +82,7 @@ function createCharacterInfos(character) {
 
   characterCardInfosName.append(infoHeader2);
   characterCardInfosName.append(wrapperDiv);
-  characterCardInfos.append(characterCardInfosName);
-
-  const lastKnownLocation = createSubInfo(
-    "Last known location:",
-    character.location.name
-  );
-  const firstSeenIn = createSubInfo("First seen in:", character.origin.name);
-
-  characterCardInfos.append(lastKnownLocation);
-  characterCardInfos.append(firstSeenIn);
-
-  return characterCardInfos;
+  return characterCardInfosName;
 }
 
 function getClassForStatus(character) {
