@@ -1,3 +1,8 @@
 :root {
-  /* Define your variable colors here */
+  --font-whitesmok: whitesmoke;
+  --background-characterCard: #53565a;
+  --statusColor-grey: #abb2bf;
+  --statusColor-green: #4cff8f;
+  --statusColor-red: rgb(214, 61, 46);
+  --headline-grey: rgb(158, 158, 158);
 }
