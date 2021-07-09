@@ -39,8 +39,7 @@ function createCharacterImage(character) {
 }
 
 function createCharacterInfos(character) {
-  const characterCardInfos = createElement("div");
-  characterCardInfos.classList.add("characterCard-infos");
+  const characterCardInfos = createElement("div", "characterCard-infos");
 
   const characterCardInfosName = createNameStatusSpecies(character);
 
