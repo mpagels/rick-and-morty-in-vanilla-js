@@ -17,6 +17,13 @@ body {
   grid-template-rows: 80px auto 80px;
 }
 
+header {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 main {
   overflow-y: scroll;
 }
