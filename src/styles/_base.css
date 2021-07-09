@@ -16,3 +16,7 @@ body {
   height: 100vh;
   grid-template-rows: 80px auto 80px;
 }
+
+main {
+  overflow-y: scroll;
+}
