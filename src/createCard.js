@@ -57,21 +57,21 @@ function createCharacterInfos(character) {
 }
 
 function createNameStatusSpecies(character) {
-  const characterCardInfosName = createElement("div");
-  characterCardInfosName.classList.add("characterCard-infos--name");
+  const characterCardInfosName = createElement(
+    "div",
+    "characterCard-infos--name"
+  );
 
   const infoHeader2 = createElement("h2");
   infoHeader2.classList.add("info-header2");
   infoHeader2.innerText = character.name;
 
   const wrapperDiv = createElement("div");
-  const statusLight = createElement("span");
-  statusLight.classList.add("characterCard-infos--statusLight");
+  const statusLight = createElement("span", "characterCard-infos--statusLight");
   const statusClass = getClassForStatus(character);
   statusLight.classList.add(statusClass);
 
-  const infoHeader3 = createElement("h3");
-  infoHeader3.classList.add("info-header3");
+  const infoHeader3 = createElement("h3", "info-header3");
   infoHeader3.innerText = `${character.status} - ${character.species}`;
 
   wrapperDiv.append(statusLight);
@@ -96,11 +96,15 @@ function getClassForStatus(character) {
 }
 
 function createSubInfo(headerTitle, info) {
-  const characterCardInfoWrapper = createElement("div");
-  characterCardInfoWrapper.classList.add("characterCard-infoWrapper");
+  const characterCardInfoWrapper = createElement(
+    "div",
+    "characterCard-infoWrapper"
+  );
 
-  const infoWrapperArea = createElement("h3");
-  infoWrapperArea.classList.add("characterCard-infoWrapper--area");
+  const infoWrapperArea = createElement(
+    "h3",
+    "characterCard-infoWrapper--area"
+  );
   infoWrapperArea.innerText = headerTitle;
 
   const paragraph = createElement("p");
