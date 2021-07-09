@@ -1,0 +1,9 @@
+.characterCard {
+  display: grid;
+  margin: 20px;
+}
+
+.characterCard-image {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
