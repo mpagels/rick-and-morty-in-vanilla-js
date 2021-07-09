@@ -45,7 +45,6 @@ function createCharacterInfos(character) {
   characterCardInfos.classList.add("characterCard-infos");
 
   const characterCardInfosName = createNameStatusSpecies(character);
-  characterCardInfos.append(characterCardInfosName);
 
   const lastKnownLocation = createSubInfo(
     "Last known location:",
@@ -53,6 +52,7 @@ function createCharacterInfos(character) {
   );
   const firstSeenIn = createSubInfo("First seen in:", character.origin.name);
 
+  characterCardInfos.append(characterCardInfosName);
   characterCardInfos.append(lastKnownLocation);
   characterCardInfos.append(firstSeenIn);
 
