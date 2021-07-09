@@ -18,8 +18,7 @@ import createElement from "./service";
 } */
 
 export default function createCard(character) {
-  const sectionElement = createElement("section");
-  sectionElement.classList.add("characterCard");
+  const sectionElement = createElement("section", "characterCard");
 
   const characterImage = createCharacterImage(character);
   const characterInfo = createCharacterInfos(character);
