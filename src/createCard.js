@@ -21,11 +21,7 @@ export default function createCard(character) {
   const sectionElement = createElement("section");
   sectionElement.classList.add("characterCard");
 
-  const characterImage = createElement("img");
-  characterImage.classList.add("characterCard-image");
-  characterImage.src = character.image;
-  characterImage.alt = "rick-and-morty-character";
-
+  const characterImage = createCharacterImage(character);
   sectionElement.append(characterImage);
 
   const characterCardInfos = createElement("div");
@@ -71,4 +67,14 @@ export default function createCard(character) {
   sectionElement.append(characterCardInfos);
 
   return sectionElement;
+}
+
+// helper function
+
+function createCharacterImage(character) {
+  const characterImage = createElement("img");
+  characterImage.classList.add("characterCard-image");
+  characterImage.src = character.image;
+  characterImage.alt = "rick-and-morty-character";
+  return characterImage;
 }
