@@ -5,7 +5,7 @@ const selectElement = document.querySelector("select");
 const loadButton = document.querySelector(".btn-load-characters");
 
 loadButton.addEventListener("click", () => {
-  const url = createUrlUsingSelectFilter();
+  const url = createUrlUsingSelectFilter2();
   mainElement.innerText = "";
 
   fetch(url)
@@ -30,4 +30,20 @@ function createUrlUsingSelectFilter() {
     default:
       return "https://rickandmortyapi.com/api/character";
   }
+}
+
+// another solution (using modern JS features (ternary operator)) to create url from filter
+function createUrlUsingSelectFilter2() {
+  const filter = selectElement.value;
+  /*
+  the following reads like this:
+  if filter equals "all" then 
+  return and save the string after the ? in the variable url, 
+  if not save the string after the : in the variable url.
+  */
+  const url =
+    filter === "all"
+      ? "https://rickandmortyapi.com/api/character"
+      : "https://rickandmortyapi.com/api/character/?status=" + filter;
+  return url;
 }
