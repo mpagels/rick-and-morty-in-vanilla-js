@@ -4,6 +4,7 @@ const mainElement = document.querySelector("main");
 
 const loadButton = document.querySelector(".btn-load-characters");
 loadButton.addEventListener("click", () => {
+  mainElement.innerText = "";
   fetch("https://rickandmortyapi.com/api/character")
     .then((response) => response.json())
     .then((data) =>
