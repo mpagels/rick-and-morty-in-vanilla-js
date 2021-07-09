@@ -22,9 +22,9 @@ export default function createCard(character) {
   sectionElement.classList.add("characterCard");
 
   const characterImage = createCharacterImage(character);
-  sectionElement.append(characterImage);
-
   const characterInfo = createCharacterInfos(character);
+
+  sectionElement.append(characterImage);
   sectionElement.append(characterInfo);
 
   return sectionElement;
