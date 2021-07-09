@@ -68,18 +68,7 @@ function createCharacterInfos(character) {
   characterCardInfosName.append(wrapperDiv);
   characterCardInfos.append(characterCardInfosName);
 
-  const characterCardInfoWrapper = createElement("div");
-  characterCardInfoWrapper.classList.add("characterCard-infoWrapper");
-
-  const infoWrapperArea = createElement("h3");
-  infoWrapperArea.classList.add("characterCard-infoWrapper--area");
-  infoWrapperArea.innerText = "Last known location";
-
-  const paragraph = createElement("p");
-  paragraph.innerText = character.location.name;
-
-  characterCardInfoWrapper.append(infoWrapperArea);
-  characterCardInfoWrapper.append(paragraph);
+  const characterCardInfoWrapper = createSubInfo(character);
 
   characterCardInfos.append(characterCardInfoWrapper);
 
@@ -97,4 +86,21 @@ function getClassForStatus(character) {
     default:
       return "unkown";
   }
+}
+
+function createSubInfo(character) {
+  const characterCardInfoWrapper = createElement("div");
+  characterCardInfoWrapper.classList.add("characterCard-infoWrapper");
+
+  const infoWrapperArea = createElement("h3");
+  infoWrapperArea.classList.add("characterCard-infoWrapper--area");
+  infoWrapperArea.innerText = "Last known location";
+
+  const paragraph = createElement("p");
+  paragraph.innerText = character.location.name;
+
+  characterCardInfoWrapper.append(infoWrapperArea);
+  characterCardInfoWrapper.append(paragraph);
+
+  return characterCardInfoWrapper;
 }
