@@ -20,3 +20,9 @@ body {
 main {
   overflow-y: scroll;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
