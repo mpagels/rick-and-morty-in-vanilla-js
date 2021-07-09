@@ -32,8 +32,7 @@ export default function createCard(character) {
 // helper function
 
 function createCharacterImage(character) {
-  const characterImage = createElement("img");
-  characterImage.classList.add("characterCard-image");
+  const characterImage = createElement("img", "characterCard-image");
   characterImage.src = character.image;
   characterImage.alt = "rick-and-morty-character";
   return characterImage;
