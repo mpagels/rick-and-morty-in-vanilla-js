@@ -54,7 +54,8 @@ function createCharacterInfos(character) {
   const wrapperDiv = createElement("div");
   const statusLight = createElement("span");
   statusLight.classList.add("characterCard-infos--statusLight");
-  statusLight.classList.add("alive");
+  const statusClass = getClassForStatus(character);
+  statusLight.classList.add(statusClass);
 
   const infoHeader3 = createElement("h3");
   infoHeader3.classList.add("info-header3");
@@ -83,4 +84,17 @@ function createCharacterInfos(character) {
   characterCardInfos.append(characterCardInfoWrapper);
 
   return characterCardInfos;
+}
+
+function getClassForStatus(character) {
+  switch (character.status) {
+    case "Alive":
+      return "alive";
+    case "Dead":
+      return "dead";
+    case "Unknown":
+      return "unknown";
+    default:
+      return "unkown";
+  }
 }
