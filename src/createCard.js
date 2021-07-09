@@ -68,9 +68,14 @@ function createCharacterInfos(character) {
   characterCardInfosName.append(wrapperDiv);
   characterCardInfos.append(characterCardInfosName);
 
-  const characterCardInfoWrapper = createSubInfo(character);
+  const lastKnownLocation = createSubInfo(
+    "Last known location:",
+    character.location.name
+  );
+  const firstSeenIn = createSubInfo("First seen in:", character.origin.name);
 
-  characterCardInfos.append(characterCardInfoWrapper);
+  characterCardInfos.append(lastKnownLocation);
+  characterCardInfos.append(firstSeenIn);
 
   return characterCardInfos;
 }
@@ -88,16 +93,16 @@ function getClassForStatus(character) {
   }
 }
 
-function createSubInfo(character) {
+function createSubInfo(headerTitle, info) {
   const characterCardInfoWrapper = createElement("div");
   characterCardInfoWrapper.classList.add("characterCard-infoWrapper");
 
   const infoWrapperArea = createElement("h3");
   infoWrapperArea.classList.add("characterCard-infoWrapper--area");
-  infoWrapperArea.innerText = "Last known location";
+  infoWrapperArea.innerText = headerTitle;
 
   const paragraph = createElement("p");
-  paragraph.innerText = character.location.name;
+  paragraph.innerText = info;
 
   characterCardInfoWrapper.append(infoWrapperArea);
   characterCardInfoWrapper.append(paragraph);
