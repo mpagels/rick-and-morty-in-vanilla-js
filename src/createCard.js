@@ -1,5 +1,22 @@
 import createElement from "./service";
 
+/* {
+  "name": "Rick Sanchez",
+  "status": "Alive",
+  "species": "Human",
+  "type": "",
+  "gender": "Male",
+  "origin": {
+    "name": "Earth (C-137)",
+    "url": "https://rickandmortyapi.com/api/location/1"
+  },
+  "location": {
+    "name": "Earth (Replacement Dimension)",
+    "url": "https://rickandmortyapi.com/api/location/20"
+  },
+  "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+} */
+
 export default function createCard() {
   const sectionElement = createElement("section");
   sectionElement.classList.add("characterCard");
