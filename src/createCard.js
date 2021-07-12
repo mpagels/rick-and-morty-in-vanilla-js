@@ -21,16 +21,45 @@ export default function createCard(character) {
   const sectionElement = createElement("section");
   sectionElement.classList.add("characterCard");
 
+  const characterImage = createCharacterImage(character);
+  const characterInfo = createCharacterInfos(character);
+
+  sectionElement.append(characterImage);
+  sectionElement.append(characterInfo);
+
+  return sectionElement;
+}
+
+// helper function
+
+function createCharacterImage(character) {
   const characterImage = createElement("img");
   characterImage.classList.add("characterCard-image");
   characterImage.src = character.image;
   characterImage.alt = "rick-and-morty-character";
+  return characterImage;
+}
 
-  sectionElement.append(characterImage);
-
+function createCharacterInfos(character) {
   const characterCardInfos = createElement("div");
   characterCardInfos.classList.add("characterCard-infos");
 
+  const characterCardInfosName = createNameStatusSpecies(character);
+
+  const lastKnownLocation = createSubInfo(
+    "Last known location:",
+    character.location.name
+  );
+  const firstSeenIn = createSubInfo("First seen in:", character.origin.name);
+
+  characterCardInfos.append(characterCardInfosName);
+  characterCardInfos.append(lastKnownLocation);
+  characterCardInfos.append(firstSeenIn);
+
+  return characterCardInfos;
+}
+
+function createNameStatusSpecies(character) {
   const characterCardInfosName = createElement("div");
   characterCardInfosName.classList.add("characterCard-infos--name");
 
@@ -41,7 +70,8 @@ export default function createCard(character) {
   const wrapperDiv = createElement("div");
   const statusLight = createElement("span");
   statusLight.classList.add("characterCard-infos--statusLight");
-  statusLight.classList.add("alive");
+  const statusClass = getClassForStatus(character);
+  statusLight.classList.add(statusClass);
 
   const infoHeader3 = createElement("h3");
   infoHeader3.classList.add("info-header3");
@@ -52,23 +82,35 @@ export default function createCard(character) {
 
   characterCardInfosName.append(infoHeader2);
   characterCardInfosName.append(wrapperDiv);
-  characterCardInfos.append(characterCardInfosName);
+  return characterCardInfosName;
+}
 
+function getClassForStatus(character) {
+  switch (character.status) {
+    case "Alive":
+      return "alive";
+    case "Dead":
+      return "dead";
+    case "Unknown":
+      return "unknown";
+    default:
+      return "unkown";
+  }
+}
+
+function createSubInfo(headerTitle, info) {
   const characterCardInfoWrapper = createElement("div");
   characterCardInfoWrapper.classList.add("characterCard-infoWrapper");
 
   const infoWrapperArea = createElement("h3");
   infoWrapperArea.classList.add("characterCard-infoWrapper--area");
-  infoWrapperArea.innerText = "Last known location";
+  infoWrapperArea.innerText = headerTitle;
 
   const paragraph = createElement("p");
-  paragraph.innerText = character.location.name;
+  paragraph.innerText = info;
 
   characterCardInfoWrapper.append(infoWrapperArea);
   characterCardInfoWrapper.append(paragraph);
 
-  characterCardInfos.append(characterCardInfoWrapper);
-  sectionElement.append(characterCardInfos);
-
-  return sectionElement;
+  return characterCardInfoWrapper;
 }
