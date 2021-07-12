@@ -1,3 +1,12 @@
+# Rick and Morty with vanilla javascript
+
+This repo holds my solution for the [rick-and-morty-exercise](https://github.com/mpagels/neuefische-rick-and-morty-exercise).
+
+The code in the `main` branch is untouched. You can see every step I did in a `pull request`. Start at [`01`](https://github.com/mpagels/rick-and-morty-in-vanilla-js/pulls).  
+I tried to use the `gitHub workflow` as much as possible. You can see into my commits and can follow the process of the development the app did. In the pull request description I tried to explain a bit what I did and why.
+
+I will add the solution for exercise 3 soon.
+
 # Vanilla JS Vite Template
 
 - With Prettier (for styling)
