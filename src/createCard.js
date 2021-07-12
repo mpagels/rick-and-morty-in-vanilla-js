@@ -1,13 +1,29 @@
 import createElement from "./service";
 
-export default function createCard() {
+/* {
+  "name": "Rick Sanchez",
+  "status": "Alive",
+  "species": "Human",
+  "type": "",
+  "gender": "Male",
+  "origin": {
+    "name": "Earth (C-137)",
+    "url": "https://rickandmortyapi.com/api/location/1"
+  },
+  "location": {
+    "name": "Earth (Replacement Dimension)",
+    "url": "https://rickandmortyapi.com/api/location/20"
+  },
+  "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+} */
+
+export default function createCard(character) {
   const sectionElement = createElement("section");
   sectionElement.classList.add("characterCard");
 
   const characterImage = createElement("img");
   characterImage.classList.add("characterCard-image");
-  characterImage.src =
-    "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
+  characterImage.src = character.image;
   characterImage.alt = "rick-and-morty-character";
 
   sectionElement.append(characterImage);
@@ -20,7 +36,7 @@ export default function createCard() {
 
   const infoHeader2 = createElement("h2");
   infoHeader2.classList.add("info-header2");
-  infoHeader2.innerText = "Little Dipper";
+  infoHeader2.innerText = character.name;
 
   const wrapperDiv = createElement("div");
   const statusLight = createElement("span");
@@ -29,7 +45,7 @@ export default function createCard() {
 
   const infoHeader3 = createElement("h3");
   infoHeader3.classList.add("info-header3");
-  infoHeader3.innerText = "Alive - Humaniod";
+  infoHeader3.innerText = `${character.status} - ${character.species}`;
 
   wrapperDiv.append(statusLight);
   wrapperDiv.append(infoHeader3);
@@ -46,7 +62,7 @@ export default function createCard() {
   infoWrapperArea.innerText = "Last known location";
 
   const paragraph = createElement("p");
-  paragraph.innerText = "Earth (Replacement Dimension)";
+  paragraph.innerText = character.location.name;
 
   characterCardInfoWrapper.append(infoWrapperArea);
   characterCardInfoWrapper.append(paragraph);
