@@ -1,0 +1,53 @@
+.characterCard {
+  display: grid;
+  margin: 20px;
+  color: var(--font-whitesmok);
+}
+
+.characterCard-infos {
+  background-color: var(--background-characterCard);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.characterCard-infos--statusLight {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.characterCard-infoWrapper--area {
+  font-size: 0.9em;
+  color: var(--headline-grey);
+  margin-bottom: 5px;
+}
+
+.characterCard-image {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+.info-header2 {
+  font-size: 1.7em;
+}
+
+.info-header3 {
+  display: inline;
+  font-size: 0.9em;
+}
+
+.unkown {
+  background-color: var(--statusColor-grey);
+}
+
+.alive {
+  background-color: var(--statusColor-green);
+}
+.dead {
+  background-color: var(--statusColor-red);
+}

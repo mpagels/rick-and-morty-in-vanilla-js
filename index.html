@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <img src="" alt="logo"/>
+      <img src="" alt="logo" />
       <select>
         <option value="all">Show all characters</option>
         <option value="alive">Show alive characters</option>
@@ -19,19 +19,30 @@
       <button>Load selected Characters</button>
     </header>
     <main>
-      <section class="CharacterCard">
-        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="rick-and-morty-character" />
-        <div class="NameInfo">
-          <h2>Little Dipper</h2>
-          <div class=""><span class="StatusLight">.</span><h3>Alive - Humaniod</h3></div>
-        </div>
-        <div class="Info">
-          <h3 class="Info-Header">Last known location:</h3>
-          <p>Earth (Replacement Dimension)</p>
-        </div>
-        <div class="Info">
-          <h3 class="Info-Header">First seen in:</h3>
-          <p>Raising Gazorpazorp</p>
+      <section class="characterCard">
+        <img
+          class="characterCard-image"
+          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+          alt="rick-and-morty-character"
+        />
+        <div class="characterCard-infos">
+          <div class="characterCard-infos--name">
+            <h2 class="info-header2">Little Dipper</h2>
+            <div class="">
+              <span class="characterCard-infos--statusLight dead"></span>
+              <h3 class="info-header3">Alive - Humaniod</h3>
+            </div>
+          </div>
+          <div class="characterCard-infoWrapper">
+            <h3 class="characterCard-infoWrapper--area">
+              Last known location:
+            </h3>
+            <p>Earth (Replacement Dimension)</p>
+          </div>
+          <div class="characterCard-infoWrapper">
+            <h3 class="characterCard-infoWrapper--area">First seen in:</h3>
+            <p>Raising Gazorpazorp</p>
+          </div>
         </div>
       </section>
     </main>
