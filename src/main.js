@@ -1,21 +1,23 @@
 import createCard from "./createCard";
+import { hasInputValue } from "./service";
 
 const mainElement = document.querySelector("main");
 const selectElement = document.querySelector("select");
 const loadButton = document.querySelector(".btn-load-characters");
+const inputElement = document.querySelector("input");
 
 loadButton.addEventListener("click", () => {
-  const url = createUrlUsingSelectFilter2();
-  mainElement.innerText = "";
+  const inputHasValue = hasInputValue(inputElement.value);
+
+  const url = createUrlUsingSelectFilter2(inputHasValue);
 
   fetch(url)
     .then((response) => response.json())
     .then((data) =>
-      data.results.forEach((character) => {
-        const characterCard = createCard(character);
-        mainElement.append(characterCard);
-      })
-    )
+        data.results.forEach((character) => {
+          const characterCard = createCard(character);
+          mainElement.append(characterCard);
+    })
     .catch((error) => console.log("Something went wrong." + error));
 });
 
@@ -33,7 +35,7 @@ function createUrlUsingSelectFilter() {
 }
 
 // another solution (using modern JS features (ternary operator)) to create url from filter
-function createUrlUsingSelectFilter2() {
+function createUrlUsingSelectFilter2(inputHasValue) {
   const filter = selectElement.value;
   /*
   the following reads like this:
@@ -45,5 +47,15 @@ function createUrlUsingSelectFilter2() {
     filter === "all"
       ? "https://rickandmortyapi.com/api/character"
       : "https://rickandmortyapi.com/api/character/?status=" + filter;
-  return url;
+
+  const finalUrl = getNameSearchUrl(url, filter, inputHasValue);
+  return finalUrl;
+}
+
+function getNameSearchUrl(url, filter, inputHasValue) {
+  if (filter === "all" && inputHasValue) {
+    return url + `/?name=${inputElement.value}`;
+  } else if (inputHasValue) {
+    return url + `&name=${inputElement.value}`;
+  } else return url;
 }
