@@ -29,6 +29,7 @@ loadButton.addEventListener("click", () => {
         data.results.forEach((character) => {
           const characterCard = createCard(character);
           mainElement.append(characterCard);
+          inputElement.value = "";
         });
       }
     })
