@@ -1,4 +1,5 @@
 import createCard from "./createCard";
+import createErrorElement from "./createErrorElement";
 import { hasInputValue } from "./service";
 
 const mainElement = document.querySelector("main");
@@ -12,11 +13,24 @@ loadButton.addEventListener("click", () => {
   const url = createUrlUsingSelectFilter2(inputHasValue);
 
   fetch(url)
-    .then((response) => response.json())
-    .then((data) =>
+    .then((response) => {
+      if (response.status > 400) {
+        return "Nothing found";
+      } else {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      mainElement.innerText = "";
+      if (!data.results) {
+        const errorElement = createErrorElement(data);
+        mainElement.append(errorElement);
+      } else {
         data.results.forEach((character) => {
           const characterCard = createCard(character);
           mainElement.append(characterCard);
+        });
+      }
     })
     .catch((error) => console.log("Something went wrong." + error));
 });
