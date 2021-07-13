@@ -7,7 +7,7 @@ export default function createElement(element, classList = "") {
 }
 
 export function hasInputValue(inputElementValue) {
-  const stringWithoutWhiteSpace = inputElementValue.trim().length > 0;
+  const stringWithoutWhiteSpace = inputElementValue.trim();
   const inputHasValue = stringWithoutWhiteSpace.length > 0;
   return inputHasValue;
 }
